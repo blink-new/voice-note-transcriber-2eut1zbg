@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm, comforting color palette */
+    --background: 32 24% 96%; /* Warm off-white */
+    --foreground: 25 20% 15%; /* Deep warm brown */
+    --card: 35 30% 98%; /* Slightly warmer white */
+    --card-foreground: 25 20% 15%;
+    --popover: 35 30% 98%;
+    --popover-foreground: 25 20% 15%;
+    --primary: 28 85% 65%; /* Warm amber/orange */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 30 35% 88%; /* Warm beige */
+    --secondary-foreground: 25 20% 25%;
+    --muted: 35 25% 92%; /* Soft warm gray */
+    --muted-foreground: 25 15% 45%;
+    --accent: 25 70% 75%; /* Soft peach */
+    --accent-foreground: 25 20% 15%;
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 20% 85%; /* Warm border */
+    --input: 35 25% 90%;
+    --ring: 28 85% 65%;
+    --radius: 0.75rem;
+    
+    /* Recording state colors */
+    --recording: 0 85% 65%; /* Warm red for recording */
+    --success: 120 50% 55%; /* Soft green for success */
+    --warning: 45 90% 60%; /* Warm yellow for warning */
+  }
+  
+  .dark {
+    --background: 25 15% 8%; /* Deep warm dark */
+    --foreground: 35 25% 92%;
+    --card: 25 15% 10%;
+    --card-foreground: 35 25% 92%;
+    --popover: 25 15% 10%;
+    --popover-foreground: 35 25% 92%;
+    --primary: 28 75% 55%;
+    --primary-foreground: 25 15% 8%;
+    --secondary: 25 15% 15%;
+    --secondary-foreground: 35 25% 85%;
+    --muted: 25 10% 18%;
+    --muted-foreground: 30 15% 65%;
+    --accent: 25 45% 25%;
+    --accent-foreground: 35 25% 85%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 25 15% 20%;
+    --input: 25 10% 18%;
+    --ring: 28 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  .font-serif {
+    font-family: 'Crimson Text', Georgia, serif;
+  }
+}
+
+@layer components {
+  .recording-pulse {
+    animation: pulse-recording 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-recording {
+    0%, 100% { 
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% { 
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+  }
+  
+  .note-card-hover {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .note-card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+}
